@@ -1,0 +1,28 @@
+## pandas中dataFrame写入MySQL
+
+```python
+# coding:utf-8
+import sys
+import pandas as pd
+from sqlalchemy import create_engine
+
+if __name__ == '__main__':
+    df = pd.read_pickle("data/pid_with_more_info.pkl")
+    engine = create_engine('mysql+pymysql://{0}:{1}@'
+                           '{2}:3306/{3}'.format("user",
+                                                 "password",
+                                                 "host",
+                                                 "db"))
+    df.to_sql(name="alg_ec_recommend_sale_for_recall_pid_with_more_info",
+                          con=engine,
+                          if_exists="replace", index=False)
+```
+
+to_sql参数
+
+| 参数： | name：stringSQL表的名称。                                                                                                                                                                                        con：sqlalchemy.engine.Engine或sqlite3.Connection使用SQLAlchemy可以使用该库支持的任何数据库。为sqlite3.Connection对象提供了旧版支持。                                                                                                                                      schema：string，optional指定架构（如果数据库支持）。如果为None，请使用默认架构。                                              if_exists：{'fail'，'replace'，'append'}，默认'fail'                                                                                                                                                    如果表已存在的情况如下，fail：引发ValueError。replace：在插入新值之前删除表。append：将新值插入现有表。index：布尔值，默认为True将DataFrame索引写为列。使用index_label作为表中的列名。                                               index_label：字符串或序列，默认为None索引列的列标签。如果给出None（默认）且 index为True，则使用索引名称。如果DataFrame使用MultiIndex，则应该给出一个sequence。                                                                                                             chunksize：int，可选行将一次批量写入的数量。默认情况下，所有行都将立即写入。                                                                                 dtype：dict，可选指定列的数据类型。键应该是列名，值应该是SQLAlchemy类型，或sqlite3传统模式的字符串。 |
+| ------ | ------------------------------------------------------------ |
+| 异常： | ValueError异常当表已经存在且if_exists为'fail'时（默认值）。  |
+
+ 
+

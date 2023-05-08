@@ -1,0 +1,20 @@
+1、SQL中使用order by 和 union 同时使用：https://blog.csdn.net/loophome/article/details/51308631
+
+2、union和union all去重和不去重的区别
+
+3、Replace into 与Insert into on duplicate key update真正的不同之处 https://blog.csdn.net/xlxxcc/article/details/52439734
+
+相同点：
+（1）没有key的时候，replace与insert .. on duplicate udpate相同。
+（2）有key的时候，都保留主键值，并且auto_increment自动+1。
+
+不同点
+　replace是delete老记录+insert新的记录，所以某个字段如果没有指定新值，则用默认值填充；
+
+**on duplicate udpate为Mysql特有语法**
+insert .. on deplicate udpate  是delete老记录+insert新的记录
+
+**但是，保留了所有字段的旧值，再覆盖然后一起insert进去，而replace没有保留旧值，直接删除再insert新值**。
+　
+　从底层执行效率上来讲，replace要比insert .. on deplicate update效率要高，但是在写replace的时候，字段要写全，防止老的字段数据被删除。
+

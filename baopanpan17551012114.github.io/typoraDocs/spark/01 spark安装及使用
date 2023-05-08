@@ -1,0 +1,22 @@
+## pyspark的安装及使用
+
+https://www.jianshu.com/p/c870a9e34118
+
+## windows+linux下安装spark
+
+https://blog.csdn.net/qq_28626909/article/details/81632634
+
+包括安装、pycharm中变量配置（pycharm中跑pyspark）
+
+
+
+PYTHONUNBUFFERED=1;
+
+SPARK_HOME=E:\spark-2.4.7-bin-hadoop2.7\spark-2.4.7-bin-hadoop2.7;
+
+JAVA_HOME=E:\spark-2.4.7-bin-hadoop2.7\spark-2.4.7-bin-hadoop2.7\jarsD:\Java\jdk1.8.0_05;
+
+PYTHONPATH=E:\spark-2.4.7-bin-hadoop2.7\spark-2.4.7-bin-hadoop2.7\python
+
+配入环境变量
+
