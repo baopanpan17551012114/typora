@@ -4,8 +4,6 @@ https://mp.weixin.qq.com/s?__biz=MzIwMDgzMjc3NA==&mid=2247484489&idx=1&sn=b4078d
 
 ![图片](https://mmbiz.qpic.cn/mmbiz_png/SYoYmIOcI5pN3fuFqya0J40LO5XlHKOZT4ibbWQvqnbeZtbRZwTdG2jG993B2cMLE90fIQjV1MSt61wWfx1WZ0A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
-![1565086990869-f538b7b5-ae1a-4b34-8e03-a23d8517d48f](C:\Users\Administrator\Desktop\1565086990869-f538b7b5-ae1a-4b34-8e03-a23d8517d48f.png)
-
 ## 查询缓存（Mysql8.0后取消）
 
 查询缓存，它其实是一个哈希表，它将执行过的语句及其结果会以 key-value 对的形式，被直接缓存在内存中。
@@ -19,7 +17,7 @@ https://mp.weixin.qq.com/s?__biz=MzIwMDgzMjc3NA==&mid=2247484489&idx=1&sn=b4078d
 
 因此，我能想到用查询缓存的表，只有一种情况，那就是配置表。其他的业务表，根本是无法利用查询缓存的特性，或许Mysql团队也是觉得查询缓存的使用场景过于局限，就无情的将它剔除。
 
-![image-20210721180154275](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210721180154275.png)
+![image-20210721180154275](..\typora-user-images\image-20210721180154275.png)
 
 
 

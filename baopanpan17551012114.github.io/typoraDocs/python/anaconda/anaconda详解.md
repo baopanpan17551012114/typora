@@ -1,3 +1,7 @@
+86_64和arm64切换https://www.jianshu.com/p/7986fbd82884
+
+
+
 https://blog.csdn.net/weixin_43837968/article/details/114776842
 
 Anaconda/conda详解

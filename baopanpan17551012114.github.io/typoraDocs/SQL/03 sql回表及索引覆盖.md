@@ -54,11 +54,11 @@ explain的输出结果**Extra字段为Using index**时，能够触发索引覆�
 
 索引覆盖：
 
-![image-20210709161921635](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210709161921635.png)
+![image-20210709161921635](..\typora-user-images\image-20210709161921635.png)
 
 非索引覆盖：
 
-![image-20210709162144714](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210709162144714.png)
+![image-20210709162144714](..\typora-user-images\image-20210709162144714.png)
 
 只需要在一棵索引树上就能获取SQL所需的所有列数据，无需回表，速度更快。
 

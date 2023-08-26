@@ -1,7 +1,3 @@
-表中字段：wid, merchant_id, goodsid, recommendType, label, topicdate
-
-![img](https://pic2.zhimg.com/80/v2-21285c405ca50a648ff14c146d48eef1_720w.jpg)
-
 ## 一、关系运算
 
 1.等值比较: =

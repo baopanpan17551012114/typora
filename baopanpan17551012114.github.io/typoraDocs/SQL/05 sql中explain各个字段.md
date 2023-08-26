@@ -4,7 +4,7 @@ https://www.yuque.com/yinjianwei/vyrvkf/wgdwll
 
 
 
-![image-20210715171342518](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210715171342518.png)
+![image-20210715171342518](..\typora-user-images\image-20210715171342518.png)
 
 **id：SELECT识别符。这是SELECT的查询[序列号](https://www.baidu.com/s?wd=序列号&tn=24004469_oem_dg&rsv_dl=gh_pl_sl_csd)。**
 
@@ -109,7 +109,7 @@ const扫描的条件为：
 
 （2）被连接的部分是一个常量(const)值；
 
-![image-20210713182417972](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210713182417972.png)
+![image-20210713182417972](..\typora-user-images\image-20210713182417972.png)
 
 **三、eq_ref**
 
@@ -135,11 +135,11 @@ const降级为ref：常量的连接查询，因为**有多于一行的数据被�
 
 只有一行数据被扫描：const
 
-![image-20210713190619853](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210713190619853.png)
+![image-20210713190619853](..\typora-user-images\image-20210713190619853.png)
 
 多行数据被扫描：ref
 
-![image-20210713190724932](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210713190724932.png)
+![image-20210713190724932](..\typora-user-images\image-20210713190724932.png)
 
 **五、range**
 
@@ -147,13 +147,13 @@ range扫描就比较好理解了，它是索引上的范围查询，它会在索
 
 between，in，>都是典型的范围(range)查询。
 
-![image-20210713191548841](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210713191548841.png)
+![image-20210713191548841](..\typora-user-images\image-20210713191548841.png)
 
 **六、index**
 
 index类型，需要扫描索引上的全部数据。
 
-![image-20210713191703976](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210713191703976.png)
+![image-20210713191703976](..\typora-user-images\image-20210713191703976.png)
 
 **七、ALL**
 
@@ -208,7 +208,7 @@ Extra 是 EXPLAIN 输出中另外一个很重要的列，该列显示 MySQL 在�
 - 查询的字段都包含在使用的索引中；
 - where 子句使用的字段也都包含在使用的索引中。
 
-![image-20210720154820632](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210720154820632.png)
+![image-20210720154820632](..\typora-user-images\image-20210720154820632.png)
 
 
 
@@ -220,13 +220,13 @@ Extra 是 EXPLAIN 输出中另外一个很重要的列，该列显示 MySQL 在�
 
 MySQL 也会把这部分判断条件下推到存储引擎层，**筛选之后再进行回表**，这样**回表时需要查找的数据就更少**。
 
-![image-20210720155510761](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210720155510761.png)
+![image-20210720155510761](..\typora-user-images\image-20210720155510761.png)
 
 第一个好理解，下图是为啥？
 
-![image-20210720155607148](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210720155607148.png)
+![image-20210720155607148](..\typora-user-images\image-20210720155607148.png)
 
-![image-20210720155652736](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210720155652736.png)
+![image-20210720155652736](..\typora-user-images\image-20210720155652736.png)
 
 
 
@@ -236,7 +236,7 @@ MySQL 也会把这部分判断条件下推到存储引擎层，**筛选之后再
 
 当出现这的情况，执行计划的 extra 字段就会出现 "Using where"，它可以和 "Using index" 一起出现，也可以和 "Using index condition" 一起出现。
 
-![image-20210720161046798](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210720161046798.png)
+![image-20210720161046798](..\typora-user-images\image-20210720161046798.png)
 
 **在存储引擎检索行后再进行过滤**，使用了where从句来限制哪些行将与下一张表匹配或者是返回给用户。
 
@@ -247,7 +247,7 @@ MySQL 也会把这部分判断条件下推到存储引擎层，**筛选之后再
 ​	Distinct：在select部分使用了distinc关键字。MySQL发现第1个匹配行后，停止为当前的行组合搜索更多的行。
 ​	Using filesort：排序时无法使用到索引时，就会出现这个。
 
-![image-20210726103428922](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210726103428922.png)	Using temporary：表示使用了临时表存储中间结果。
+![image-20210726103428922](..\typora-user-images\image-20210726103428922.png)	Using temporary：表示使用了临时表存储中间结果。
 
 ​	Using index：索引覆盖。查询的列被索引覆盖，并且where筛选条件是**索引的前导列**。
 

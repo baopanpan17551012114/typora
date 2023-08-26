@@ -28,9 +28,7 @@ SELECT * FROM people
 - 不用`ICP`，只使用最左匹配原则。那么只能使用联合索引的`zipcode`，回表记录不能有效去除。
 - 使用`ICP`，除了匹配`zipcode`的条件之外，额外匹配联合索引的`lastname`，看其是否符合`where`条件中的`'%etrunia%'`，然后进行回表。如此一来，使用联合索引就可以尽可量排除不符合`where`条件的记录。这就是`ICP`优化的真谛
 
-
-
-![image-20210721201004391](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210721201004391.png)
+![image-20210721201004391](..\typora-user-images\image-20210721201004391.png)
 
 **再次总结，重要的事情多说几遍：`ICP`的实质就是通过二级索引尽可能的过滤不符合条件的记录，哪怕不符合最左匹配原则，减少回表，降低执行成本**
 
