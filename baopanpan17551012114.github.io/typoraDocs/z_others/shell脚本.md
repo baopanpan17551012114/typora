@@ -2,6 +2,10 @@ http://c.biancheng.net/view/1120.html
 
 https://www.runoob.com/linux/linux-shell-array.html
 
+
+
+https://blog.csdn.net/w918589859/article/details/108752592
+
 # Shell 变量
 
 定义变量：***变量名和等号之间不能有空格***

@@ -6,7 +6,7 @@ https://juejin.cn/post/7045085869979467789
 
 KQL：（Kibana Query Language ）查询语法是Kibana为了简化ES查询设计的一套简单查询语法，Kibana支持索引字段和语法补全，可以非常方便的查询数据。
 
-![18.Kibana中的KQL语法01.jpg](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/dbb1e77f3d6746be9e2646f739895dd6~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp)
+![18.Kibana中的KQL语法01.jpg](../../typoraDocs/typora-user-images/dbb1e77f3d6746be9e2646f739895dd6~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp.png)
 
 如果关闭 KQL，Kibana 将使用 Lucene。
 
@@ -25,8 +25,7 @@ KQL：（Kibana Query Language ）查询语法是Kibana为了简化ES查询设�
 **示例一**
 
 ```basic
-basic
-复制代码response:200
+response:200
 
 # 匹配到的结果
 200
@@ -41,8 +40,7 @@ hello 200 world
 **示例二**
 
 ```basic
-basic
-复制代码message:"hello world yes"
+message:"hello world yes"
 ```
 
 上面这个表达式，是针对message字段进行搜索，在搜索的时候不会区分大小写。
@@ -52,8 +50,7 @@ basic
 **示例三**
 
 ```basic
-basic
-复制代码message:hello world
+message:hello world
 
 #匹配到的结果
 hello
@@ -85,8 +82,7 @@ world yes
 **示例一**
 
 ```basic
-basic
-复制代码account_number >=100
+account_number >=100
 ```
 
 上面这个表达式，针对account_number字段进行搜索，搜索account_number的值大于等于100的数据。
@@ -94,8 +90,7 @@ basic
 **示例二**
 
 ```basic
-basic
-复制代码# 搜索日期
+# 搜索日期
 
 # 搜索具体时间
 @timestamp < "2021-01-02T21:55:59"
@@ -118,8 +113,7 @@ basic
 **示例一**
 
 ```basic
-basic
-复制代码# and 的用法
+# and 的用法
 name:jane and addr:beijing
 ```
 
@@ -130,8 +124,7 @@ name:jane and addr:beijing
 **示例二**
 
 ```basic
-basic
-复制代码# or 的用法
+# or 的用法
 name:jane or addr:beijing
 ```
 
@@ -140,8 +133,7 @@ name:jane or addr:beijing
 **示例三**
 
 ```basic
-basic
-复制代码# not 的用法
+# not 的用法
 
 #查询出response字段中不包含200的记录
 not response:200
@@ -156,8 +148,7 @@ response:(200 and not yes)
 **示例四**
 
 ```basic
-basic
-复制代码name:jane and addr:beijing or job:teacher
+name:jane and addr:beijing or job:teacher
 ```
 
 上面的查询条件，查询name包含jane，且addr包含beijing的记录，或者job包含teacher的记录。
@@ -167,15 +158,13 @@ basic
 对于上方结果可以使用小括号来更好的理解
 
 ```basic
-basic
-复制代码(name:jane and addr:beijing) or job:teacher
+(name:jane and addr:beijing) or job:teacher
 ```
 
 **示例五**
 
 ```basic
-basic
-复制代码response:(200 or 404)
+response:(200 or 404)
 
 # 与上方表达式等价
 response:200 or response:400
@@ -202,8 +191,7 @@ response:200 or response:400
 **示例一**
 
 ```basic
-basic
-复制代码response:*
+response:*
 ```
 
 　上面这个查询条件，会返回所有包含response字段的文档对象。
@@ -211,8 +199,7 @@ basic
 **示例二**
 
 ```basic
-basic
-复制代码machine*:hello
+machine*:hello
 ```
 
 查询字段名以machine开头，字段值为hello的数据。
@@ -220,8 +207,7 @@ basic
 **示例三**
 
 ```basic
-basic
-复制代码# 查询字段名为machine，字段值以hello开头的数据
+# 查询字段名为machine，字段值以hello开头的数据
 machine:hello*
 
 # 查询字段名为FlightNum，字段值开头为T，结尾为V的数据
@@ -235,8 +221,7 @@ FlightNum:T*V
 首先准备一个多层的数据，比如下面的这几条数据。
 
 ```json
-json
-复制代码{
+{
   "level1": [
     {
       "level2": [

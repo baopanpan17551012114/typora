@@ -41,7 +41,15 @@ if __name__ == '__main__':
 
 
 
-## pyspark对hive进行读写
+## pyspark对hive进行读写    PySpark 读写Hive数据源
+
+https://dblab.xmu.edu.cn/blog/4625/
+
+# 读写Hive数据源
+
+从Spark2.0开始，引入SparkSession 作为 DataSet 和 DataFrame API 的切入点，SparkSession封装了SparkConf、SparkContext 和 SQLContext。为了向后兼容，SQLContext 和 HiveContext也被保存下来。
+
+在实际写程序时，只需要定义一个SparkSession对象就可以了。不用使用SQLContext 和 HiveContext。
 
 ### 读hive:
 
@@ -67,9 +75,40 @@ hive_context= HiveContext(sc)
 hive_read = "select * from data_model.wsc_recommend_sale_recall_storeid_with_more_info limit 20"
 read_df = hive_context.sql(hive_read)
 read_df.show(10)
+
+######
+from pyspark.sql import SparkSession
+# 初始化SparkSession并启用Hive支持
+spark = SparkSession.builder\
+    .appName("StocksDataWriteExample")\
+    .enableHiveSupport()\
+    .getOrCreate()
+# 读取并显示stocks表的数据
+spark.sql("SELECT * FROM stocks").show(10)
 ```
 
+新版本
 
+```python
+import subprocess
+import pandas as pd
+from io import StringIO
+def hive_load_to_file(sql_string, save_path):
+    hive_query = """set hive.cli.print.header=true;set hive.resultset.use.unique.column.names=false;{0}""".format(sql_string)
+
+    # 执行 Hive 命令并捕获输出
+    result = subprocess.run(['hive', '-e', hive_query], capture_output=True, text=True)
+
+    # 检查命令是否成功执行
+    if result.returncode == 0:
+        # 使用 StringIO 来模拟文件，然后用 Pandas 读取
+        output = StringIO(result.stdout)
+        df = pd.read_csv(output, sep='\t')  # 假设字段是用制表符分隔的
+        df.to_csv(save_path)
+    else:
+        print("Hive query failed.")
+        print(result.stderr)
+```
 
 
 
