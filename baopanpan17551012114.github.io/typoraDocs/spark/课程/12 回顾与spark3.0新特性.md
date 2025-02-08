@@ -124,3 +124,10 @@ Python现在是Spark中使用较为广泛的编程语言，因此也是Spark 3.0
 ![img](../../../typoraDocs/typora-user-images/20230322144515622.png)
 
 新版Koalas类库可以让我们写Pandas API(Koalas提供)然后将它们运行在分布式的Spark环境上, Pandas开发者也能快速上手Spark。
+
+
+
+
+
+
+
